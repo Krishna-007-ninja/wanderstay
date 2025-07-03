@@ -1,0 +1,64 @@
+<% layout('./layouts/boilerplate') -%>
+
+    <body>
+        <div class="row mt-3">
+            <div class="col-8 offset-2">
+                <h2>Create New Listing</h2>
+                <form method="POST" action="/listings" class="needs-validation" novalidate enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <lebel for="title" class="form-lebel">Title</lebel>
+                        <input name="listing[title]" placeholder="Add a catchy title" type="text" class="form-control" required>
+                        <div class="valid-feedback">Title Looks Good!</div>
+                        <div class="invalid-feedback">missing title!</div>
+                    </div>
+                    <div class="mb-3">
+                        <lebel for="description" class="form-lebel">Description</lebel>
+                        <textarea name="listing[description]" class="form-control" type="text" required></textarea>
+                        <div class="invalid-feedback">missing a short description!</div>
+                    </div>
+                    <div class="mb-3">
+                        <lebel for="image" class="form-lebel">Upload Image</lebel>
+                        <input name="listing[image]" type="file"
+                            class="form-control" required>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-4">
+                            <lebel for="price" class="form-lebel">Price</lebel>
+                            <input name="listing[price]" placeholder="1200"  class="form-control" required>
+                            <div class="invalid-feedback">missing Price!</div>
+                        </div>
+                        <div class="mb-3 col-md-8">
+                            <lebel for="location" class="form-lebel">Location</lebel>
+                            <input name="listing[location]" placeholder="Mathabhanga, West Bengal" type="text"
+                                class="form-control" required>
+                                <div class="invalid-feedback">missing location!</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <lebel for="category" class="form-lebel">Category</lebel>
+                        <select name="listing[category]" class="form-select" required>
+                            <option disabled selected>Select Category</option>
+                            <option value="Trending">Trending</option>
+                            <option value="Room">Room</option>
+                            <option value="Iconic Cities">Iconic Cities</option>
+                            <option value="Mountain">Mountain</option>
+                            <option value="Castles">Castles</option>
+                            <option value="Arctic">Arctic</option>
+                            <option value="Camping">Camping</option>
+                            <option value="Farms">Farms</option>
+                            <option value="Domes">Domes</option>
+                            <option value="Boats">Boats</option>
+                            <option value="Hospitality">Hospitality</option>
+                        </select>
+                        <div class="invalid-feedback">Please select a category!</div>
+                    </div>
+                    <div class="mb-3">
+                        <lebel for="country" class="form-lebel">Country</lebel>
+                        <input name="listing[country]" placeholder="India" type="text" class="form-control" required>
+                        <div class="invalid-feedback">missing country name!</div>
+                    </div>
+                    <button class="btn btn-dark add-btn mt-3">Add</button>
+                </form>
+            </div>
+        </div>
+    </body>

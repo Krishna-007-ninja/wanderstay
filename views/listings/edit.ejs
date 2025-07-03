@@ -1,0 +1,68 @@
+<% layout('./layouts/boilerplate') -%>
+    <body>
+        <div class="row mt-3">
+            <div class="col-8 offset-2">
+                <h2>Edit Your Listings</h2>
+                <form method="POST" action="/listings/<%=listing._id%>?_method=PUT" class="needs-validation" novalidate enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <lebel for="title" class="form-lebel">Title</lebel>
+                        <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required>
+                        <div class="nvalid-feedback">Title looks good!</div>
+                        <div class="invalid-feedback">missing title!</div>
+                    </div>
+                    <div class="mb-3">
+                        <lebel for="description" class="form-lebel">Description</lebel>
+                        <textarea name="listing[description]" type="text"
+                            class="form-control" required><%=listing.description %></textarea>
+                            <div class="invalid-feedback">missing description!</div>
+                    </div>
+                    <div class="mb-3">
+                        Original Listing Image <br>
+                        <img src="<%= originalImage %>" alt="listing image" class="img-fluid mb-3" style="max-height: 300px; max-width: 100%;">
+                    </div>
+
+                    <div class="mb-3">
+                        <lebel for="image" class="form-lebel">Upload New Image</lebel>
+                        <input name="listing[image]"  type="file" class="form-control">
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-4">
+                            <lebel for="price" class="form-lebel">Price</lebel>
+                            <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" required>
+                            <div class="invalid-feedback">missing price!</div>
+                        </div>
+                        <div class="mb-3 col-md-8">
+                            <lebel for="location" class="form-lebel">Location</lebel>
+                            <input name="listing[location]" value="<%= listing.location %>" type="text"
+                                class="form-control" required>
+                                <div class="invalid-feedback">missing location!</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="category" class="form-label">Category</label>
+                            <select name="listing[category]" class="form-select" required>
+                                <option disabled selected>Select Category</option>
+                                <option value="Trending">Trending</option>
+                                <option value="Room">Room</option>
+                                <option value="Iconic Cities">Iconic Cities</option>
+                                <option value="Mountain">Mountain</option>
+                                <option value="Castles">Castles</option>
+                                <option value="Arctic">Arctic</option>
+                                <option value="Camping">Camping</option>
+                                <option value="Farms">Farms</option>
+                                <option value="Domes">Domes</option>
+                                <option value="Boats">Boats</option>
+                                <option value="Hospitality">Hospitality</option>
+                            </select>
+                            <div class="invalid-feedback">Please select a category!</div>
+                        </div>
+                    <div class="mb-3">
+                        <label for="country" class="form-label">Country</label>
+                        <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required>
+                        <div class="invalid-feedback">missing country name!</div>
+                    </div>
+                    <button class="btn btn-dark edit-btn mt-3">Edit</button>
+                    <br><br>
+                </form>
+            </div>
+        </div>
+    </body>
